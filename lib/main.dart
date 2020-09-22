@@ -28,22 +28,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: buildAppBar(),
       body: Padding(
-        padding: EdgeInsets.only(left: 20, top: 50, right: 20),
+        padding: EdgeInsets.only(left: 20, top: 15, right: 20),
         child: Column(children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SvgPicture.asset("assets/icons/menu.svg"),
-              Image.asset("assets/images/user.png")
-            ],
-          ),
-          SizedBox(
-            height: 30,
-          ),
           Text(
-            "Hey Alex",
+            "Hey Bhim Raj",
             style: kHeadingextStyle,
+            textAlign: TextAlign.left,
           ),
           Text(
             "Find a course you want to learn",
@@ -115,6 +107,30 @@ class HomeScreen extends StatelessWidget {
           )
         ]),
       ),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      title: Container(
+        alignment: Alignment.center,
+        child: Text(
+          "Online Course App",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w800),
+        ),
+      ),
+      leading: IconButton(
+          padding: EdgeInsets.only(left: 10),
+          icon: SvgPicture.asset("assets/icons/menu.svg"),
+          onPressed: () {}),
+      actions: <Widget>[
+        IconButton(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            icon: Image.asset("assets/images/user.png"),
+            onPressed: () {})
+      ],
     );
   }
 }
